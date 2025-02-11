@@ -2,6 +2,8 @@ import express from "express";
 import fs from "fs";
 let app = express();
 
+app.use(express.json());
+
 let getdata = (req, res, next) => {
   console.log(req.query);
 
@@ -25,6 +27,7 @@ app.get("/home/:id", (req, res, next) => {
   res.status(200).json({
     data: book ? book : "Yo'q",
   });
+  //   req.body
 });
 
 app.get("/todos", (req, res, next) => {
